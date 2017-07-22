@@ -1,0 +1,41 @@
+<?php
+	header:
+	
+/*php每行都要有;结束,php文件不带?>,但是在html中嵌套的时候需要带?>
+ * echo :用于输出一个或者多个字符串 */
+echo 1;
+
+//isset函数判断一个变量是否被定义过	
+$cpage=isset($_GET['cpage'])? $_GET['cpage']:1;
+//获取数据的url地址，.的意思是链接字符串。
+$url='http://www.wookmark.com/api/json/popular?page='.$cpage;
+//把整个文件读入一个字符串中。
+$content=file_get_contents($url);
+//转化编码从gbk格式转换成utf-8格式。
+$context=iconv('gbk','utf-8',$content);
+echo $context;
+
+echo false;没有输出
+echo true;输出1
+echo "<br>";换行
+var_dump();输出数据和数据类型，用于调试。字符串的话还可以输出长度，输出的格式带有换行符
+
+
+
+php命名规则：
+	以$开头，其后是变量名称
+	变量名称必须以字母或者下划线开头
+	变量名称只能包含字母，下划线和数字
+	变量名称大小写敏感
+
+.连接字符串 
+双引号里面的$变量是可以被识别的
+单引号的$变量是不会被识别的。所以建议使用单引号。
+
+trim（）:去除字符串前后空格
+
+数据类型：
+复合数据类型：array object
+特殊数据类型：resourse，null：null类型；
+
+php中不允许未赋值的变量进行访问
